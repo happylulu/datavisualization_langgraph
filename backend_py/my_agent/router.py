@@ -37,36 +37,10 @@ def hypothesis_router(state: State) -> NodeType:
      
     return result
 
-def QualityReview_router(state: State) -> NodeType:
-    """
-    Route based on the quality review outcome and process decision.
-
-    Args:
-    state (State): The current state of the system.
-
-    Returns:
-    NodeType: The next node to route to based on the quality review and process decision.
-    """
-     
-    messages = state.get("messages", [])
-    last_message = messages[-1] if messages else None
+ 
     
-    # Check if revision is needed
-    if (last_message and 'REVISION' in str(last_message.content)) or state.get("needs_revision", False):
-        previous_node = state.get("last_sender", "")
-        revision_routes = {
-            "Visualization": "Visualization",
-            "Search": "Search",
-            "Coder": "Coder",
-            "Report": "Report"
-        }
-        result = revision_routes.get(previous_node, "NoteTaker")
-         
-        return result
-    
-    else:
-        return "NoteTaker"
-    
+    # Directly route to NoteTaker if no revision is needed
+    return "NoteTaker"  # Simplified routing
 
 def process_router(state: State) -> ProcessNodeType:
     """
@@ -90,7 +64,15 @@ def process_router(state: State) -> ProcessNodeType:
              
         except json.JSONDecodeError:
             # If JSON parsing fails, use content directly
-            process_decision = process_decision.content
+            tem = str(process_decision.content)
+            if "next" in tem and "Coder" in tem:
+                process_decision = "Coder"
+            elif "next" in tem and "Search" in tem:
+                process_decision = "Search"
+            elif "next" in tem and "Visualization" in tem:
+                process_decision = "Visualization"
+            elif "next" in tem and "Report" in tem:
+                process_decision = "Report"
              
     elif isinstance(process_decision, dict):
         process_decision = process_decision.get('next', '')
@@ -114,3 +96,31 @@ def process_router(state: State) -> ProcessNodeType:
      
     return "Process"
 
+def QualityReview_router(state: State) -> NodeType:
+    """
+    Route based on the quality review outcome and process decision.
+
+    Args:
+    state (State): The current state of the system.
+
+    Returns:
+    NodeType: The next node to route to based on the quality review and process decision.
+    """
+ 
+    messages = state.get("messages", [])
+    last_message = messages[-1] if messages else None
+    
+    # Check if revision is needed
+    if (last_message and 'REVISION' in str(last_message.content)) or state.get("needs_revision", False):
+        previous_node = state.get("last_sender", "")
+        revision_routes = {
+            "Visualization": "Visualization",
+            "Search": "Search",
+            "Coder": "Coder",
+            "Report": "Report"
+        }
+        result = revision_routes.get(previous_node, "NoteTaker")
+        return result
+    
+    else:
+        return "NoteTaker"

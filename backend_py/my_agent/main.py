@@ -328,6 +328,6 @@ workflow.add_conditional_edges(
 from langgraph.checkpoint.memory import MemorySaver
 workflow.add_edge(START, "Hypothesis")
 memory = MemorySaver()
-graph = workflow.compile()
+graph = workflow.compile(checkpointer=memory, interrupt_before=["HumanChoice","HumanReview"])
 
  
