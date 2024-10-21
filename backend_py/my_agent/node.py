@@ -56,18 +56,22 @@ from typing import Dict, Any
 from langchain_core.messages import HumanMessage
 
 def human_choice_node(
-    state: Dict[str, Any],
-    choice: str = None,
-    modification_areas: str = None
-) -> Dict[str, Any]:
+    state: State
+) -> State:
     """
     Handle human input to choose the next step in the process.
     If regenerating hypothesis, accept specific areas to modify.
     """
-    if choice not in ["1", "2"]:
-        raise ValueError("Invalid choice. Please provide '1' or '2'.")
+
+    while True:
+            choice = input("Enter '1' to regenerate analysis, or '2' to continue the research: ").lower()
+            if choice in ['1', '2']:
+                break
+            print("Invalid choice. Please provide '1' or '2'.")
 
     if choice == "1":
+        modification_areas = input("Please enter your additional analysis request: ")
+        
         if modification_areas is None:
             modification_areas = ""
         content = f"Regenerate hypothesis. Areas to modify: {modification_areas}"
