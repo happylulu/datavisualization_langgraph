@@ -16,7 +16,19 @@ export default async function handler(req: any, res: any) {
   try {
     const thread = await client.threads.create()
     const streamResponse = client.runs.stream(thread['thread_id'], 'my_agent', {
-      input: { question, uuid: databaseUuid || defaultDatabaseUuid },
+      input: {
+        messages: [{ role: 'human', content: question }],
+        hypothesis: '',
+        process_decision: '',
+        process: '',
+        visualization_state: '',
+        searcher_state: '',
+        code_state: '',
+        report_section: '',
+        quality_review: '',
+        needs_revision: false,
+        last_sender: '',
+      },
     })
 
     res.writeHead(200, {
@@ -26,8 +38,8 @@ export default async function handler(req: any, res: any) {
     })
 
     for await (const chunk of streamResponse) {
-      if (chunk.data && chunk.data.question) {
-        res.write(`data: ${JSON.stringify(chunk.data)}\n\n`)
+      if (chunk.data) {
+        res.write(`data: ${JSON.stringify({ data: chunk.data, threadId: thread['thread_id'] })}\n\n`)
       }
     }
 

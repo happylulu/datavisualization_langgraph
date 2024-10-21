@@ -7,30 +7,33 @@ import { Stream } from './Stream'
 import { graphDictionary, InputType } from '../graphs/graphDictionary'
 import UploadButton from '../UploadButton'
 import { Sidebar } from './Sidebar'
+import { Button } from '@mui/material'
 
 type GraphComponentProps = InputType & { data: any }
 
 const sampleQuestions = [
-  'Relation b/w income and rating in men and women',
-  'Avg unit price in sports vs food',
-  'What is the market share of products?',
-  'Spending across categories and gender',
-  'Best performing cities over time?',
+  'Is the study progressing according to the planned timeline (e.g., enrollment rate, follow-up visits)?',
+  'Are adverse events (AEs) and serious adverse events (SAEs) within expected safety parameters?',
+  'Are the enrolled subjects representative of the intended population in terms of key demographics (age, gender, race, etc.)?',
+  'What are the reasons behind patient dropouts, and are they preventable or related to the treatment?',
+  'Are the primary and secondary endpoints being met at interim stages?',
+  'Are there any treatment-related adverse events that were unexpected or more severe than predicted?',
+  'Are there missing data points, and if so, how are they being handled?',
+  'Does the interim analysis suggest continuing, stopping for futility, or stopping for early success?',
 ]
 export type GraphState = {
-  question: string
-  uuid: string
-  parsed_question: { [key: string]: any }
-  unique_nouns: string[]
-  sql_query: string
-  sql_valid: boolean
-  sql_issues: string
-  results: any[]
-  answer: string
+  messages: [{ [key: string]: any }]
+  hypothesis: { [key: string]: any }
+  process_decision: string
+  process: string
+  visualization_state: string
+  searcher_state: string
+  code_state: string
+  report_section: string
+  quality_review: string
+  needs_revision: boolean
+  last_sender: string
   error: string
-  visualization: string
-  visualization_reason: string
-  formatted_data_for_visualization: { [key: string]: any }
 }
 
 export default function Playground() {
@@ -43,6 +46,8 @@ export default function Playground() {
   const [showSidebar, setShowSidebar] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
   const [isUploading, setIsUploading] = useState(false)
+  const [showHumanFeedbackForm, setShowHumanFeedbackForm] = useState(false)
+  const [threadId, setThreadId] = useState<string | null>(null)
 
   const uploadDatabase = useCallback(async (file: File): Promise<string> => {
     const formData = new FormData()
@@ -77,7 +82,6 @@ export default function Playground() {
       })
 
       if (!response.ok) {
-        console.log(response)
         throw new Error('Run failed')
       }
 
@@ -92,8 +96,13 @@ export default function Playground() {
         const lines = chunk.split('\n\n')
         for (const line of lines) {
           if (line.startsWith('data: ')) {
-            const data = JSON.parse(line.slice(6))
-            setGraphState(data)
+            const { data, threadId } = JSON.parse(line.slice(6))
+
+            setThreadId(threadId)
+            if (data.error && data.message === "Invalid choice. Please provide '1' or '2'.")
+              setShowHumanFeedbackForm(true)
+
+            setGraphState((prev) => ({ ...prev, ...data }))
             console.log(data)
           }
         }
@@ -163,6 +172,30 @@ export default function Playground() {
     setShowSidebar(!showSidebar)
   }
 
+  const handleHumanFeedback = async (approval: boolean) => {
+    const client = new Client({
+      apiKey: process.env.LANGSMITH_API_KEY,
+      apiUrl: process.env.LANGGRAPH_API_URL,
+    })
+
+    if (threadId) {
+      // const state = await client.threads.getState(threadId)
+      // const toolCallId = state.values.messages[state.values.messages.length - 1].tool_calls[0].id
+
+      // // We now create the tool call with the id and the response we want
+      // const toolMessage = [
+      //   {
+      //     tool_call_id: toolCallId,
+      //     type: 'tool',
+      //     content: approval ? '2' : '1',
+      //   },
+      // ]
+
+      // await client.threads.updateState(threadId, { values: { messages: toolMessage }, asNode: 'human_choice_node' })
+      console.log(approval, threadId)
+    }
+  }
+
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-[#204544] m-0 p-0'>
       <Logo setGraphState={setGraphState} />
@@ -192,12 +225,22 @@ export default function Playground() {
         </>
       )}
 
-      {graphState && !(graphState.formatted_data_for_visualization || graphState.visualization == 'none') && (
+      {graphState && graphState.visualization_state === '' && (
         <div className='flex  w-2/3 items-start  items-center justify-center mt-60'>
           <Stream graphState={graphState} />
         </div>
       )}
-      {graphState && graphState.visualization == 'none' && (
+      {showHumanFeedbackForm && (
+        <div className='flex justify-end gap-2 mb-10'>
+          <Button variant='contained' color='success' onClick={(ev) => handleHumanFeedback(true)}>
+            Approve
+          </Button>
+          <Button variant='contained' color='error' onClick={(ev) => handleHumanFeedback(false)}>
+            Reject
+          </Button>
+        </div>
+      )}
+      {/* {graphState && graphState.visualization == 'none' && (
         <div id='answer_canvas' className='p-10 w-2/3 flex flex-col items-center justify-center relative'>
           <button
             onClick={toggleSidebar}
@@ -245,7 +288,7 @@ export default function Playground() {
             </div>
           )}
         </div>
-      )}
+      )} */}
     </div>
   )
 }

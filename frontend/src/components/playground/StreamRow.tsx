@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 export const StreamRow = ({ heading, information }: { heading: string; information: string }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -24,7 +25,9 @@ export const StreamRow = ({ heading, information }: { heading: string; informati
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className='absolute top-2 left-2 text-sm font-bold text-blue-500'>{heading}</div>
-      <div className='mt-4 ml-10 text-sm text-left overflow-x-scroll'>{information}</div>
+      <div className='mt-4 ml-10 text-sm text-left overflow-x-scroll'>
+        <ReactMarkdown>{information}</ReactMarkdown>
+      </div>
     </div>
   )
 }
