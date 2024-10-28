@@ -2,28 +2,37 @@ from typing import Any
 from langchain_core.messages import AIMessage, HumanMessage, BaseMessage,ToolMessage
 from openai import InternalServerError
 from state import State
-from typing import Dict, Any
+from typing import Dict, Any, cast
 import json
 import re
 import os
 from pathlib import Path
 from langchain.agents import AgentExecutor, create_react_agent
+from langchain_core.runnables import RunnableConfig
+from copilotkit.langchain import copilotkit_customize_config
+from tools.HumanFeedback import human_choice
+
 # Set up logger
  
 
-def agent_node(state: Dict[str, Any], agent: AgentExecutor, name: str) -> Dict[str, Any]:
+def agent_node(state: Dict[str, Any], config: RunnableConfig, agent: AgentExecutor, name: str) -> Dict[str, Any]:
     """
     Process an agent's action and update the state accordingly.
     """
     try:
         # Ensure all required keys exist in the state
+        config = copilotkit_customize_config(
+            config,
+            emit_tool_calls=True
+        )
+        
         state_copy = state.copy()
         for key in ["messages", "hypothesis", "process_decision", "visualization_state", 
                     "searcher_state", "report_section", "quality_review", "needs_revision","code_state","process"]:
             if key not in state_copy:
                 state_copy[key] = ""
 
-        result = agent.invoke(state_copy)
+        result = agent.invoke(state_copy, config)
        
         
         output = result["output"] if isinstance(result, dict) and "output" in result else str(result)
@@ -63,23 +72,20 @@ def human_choice_node(
     If regenerating hypothesis, accept specific areas to modify.
     """
 
-    while True:
-            choice = input("Enter '1' to regenerate analysis, or '2' to continue the research: ").lower()
-            if choice in ['1', '2']:
-                break
-            print("Invalid choice. Please provide '1' or '2'.")
+    last_message = cast(ToolMessage, state["messages"][-1])
 
-    if choice == "1":
+    if last_message.content == "1":
         modification_areas = input("Please enter your additional analysis request: ")
         
         if modification_areas is None:
             modification_areas = ""
         content = f"Regenerate hypothesis. Areas to modify: {modification_areas}"
         state["hypothesis"] = ""
-        state["modification_areas"] = modification_areas
-    else:
+    elif last_message.content == "2":
         content = "Continue the research process"
         state["process"] = "Continue the research process"
+    else :
+        content = "Invalid Human Choice. Please provide 1 or 2."
 
     human_message = HumanMessage(content=content)
 
@@ -179,11 +185,12 @@ def human_review_node(state: State) -> State:
     Display current state to the user and update the state based on user input.
     Includes error handling for robustness.
     """
+
     try:
         print("Current research progress:")
         print(state)
         print("\nDo you need additional analysis or modifications?")
-        
+
         while True:
             user_input = input("Enter 'yes' to continue analysis, or 'no' to end the research: ").lower()
             if user_input in ['yes', 'no']:

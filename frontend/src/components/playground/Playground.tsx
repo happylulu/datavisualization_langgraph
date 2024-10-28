@@ -8,6 +8,9 @@ import { graphDictionary, InputType } from '../graphs/graphDictionary'
 import UploadButton from '../UploadButton'
 import { Sidebar } from './Sidebar'
 import { Button } from '@mui/material'
+import { CopilotKit, useCopilotChat } from '@copilotkit/react-core'
+import { CopilotChat } from '@copilotkit/react-ui'
+import { HumanChoice } from './CopilotKit'
 
 type GraphComponentProps = InputType & { data: any }
 
@@ -99,8 +102,7 @@ export default function Playground() {
             const { data, threadId } = JSON.parse(line.slice(6))
 
             setThreadId(threadId)
-            if (data.error && data.message === "Invalid choice. Please provide '1' or '2'.")
-              setShowHumanFeedbackForm(true)
+            // setShowHumanFeedbackForm(true)
 
             setGraphState((prev) => ({ ...prev, ...data }))
             console.log(data)
@@ -181,66 +183,66 @@ export default function Playground() {
     if (threadId) {
       // const state = await client.threads.getState(threadId)
       // const toolCallId = state.values.messages[state.values.messages.length - 1].tool_calls[0].id
-
       // // We now create the tool call with the id and the response we want
       // const toolMessage = [
       //   {
       //     tool_call_id: toolCallId,
       //     type: 'tool',
-      //     content: approval ? '2' : '1',
+      //     content: 'san francisco',
       //   },
       // ]
-
       // await client.threads.updateState(threadId, { values: { messages: toolMessage }, asNode: 'human_choice_node' })
-      console.log(approval, threadId)
+      // console.log(approval, threadId)
     }
   }
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-[#204544] m-0 p-0'>
-      <Logo setGraphState={setGraphState} />
-      <UploadButton onFileUpload={handleFileUpload} disabled={isUploading} />
+    <div className='flex flex-1' style={{ height: '100vh' }}>
+      <div className='relative flex flex-1 flex-col items-center justify-center min-h-screen bg-[#204544] m-0 p-0'>
+        <Logo setGraphState={setGraphState} />
+        <UploadButton onFileUpload={handleFileUpload} disabled={isUploading} />
 
-      <Form
-        selectedQuestion={selectedQuestion}
-        setSelectedQuestion={setSelectedQuestion}
-        onFormSubmit={onFormSubmit}
-        disabled={isUploading}
-      />
+        {/* <Form
+          selectedQuestion={selectedQuestion}
+          setSelectedQuestion={setSelectedQuestion}
+          onFormSubmit={onFormSubmit}
+          disabled={isUploading}
+        /> */}
 
-      {!graphState && (
-        <>
-          <div className='text-white text-center mb-20 w-2/3'>
-            Don't have a .sqlite or .csv file to query? We'll use this one by default:{' '}
-            <a
-              href='https://docs.google.com/spreadsheets/d/1S2mYAKwYYmjZW6jURiAfMWTVmwg74QQDfwdMUvVEgMk/edit?usp=sharing'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-blue-300 hover:text-blue-100'
-            >
-              Sample Dataset
-            </a>
+        {!graphState && (
+          <>
+            <div className='text-white text-center mb-20 w-2/3'>
+              Don't have a .sqlite or .csv file to query? We'll use this one by default:{' '}
+              <a
+                href='https://docs.google.com/spreadsheets/d/1S2mYAKwYYmjZW6jURiAfMWTVmwg74QQDfwdMUvVEgMk/edit?usp=sharing'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-300 hover:text-blue-100'
+              >
+                Sample Dataset
+              </a>
+            </div>
+            <QuestionDisplay displayedQuestions={displayedQuestions} handleQuestionClick={handleQuestionClick} />
+          </>
+        )}
+
+        {graphState && (
+          <div className='flex  w-2/3 items-start  items-center justify-center mt-60'>
+            <Stream graphState={graphState} />
           </div>
-          <QuestionDisplay displayedQuestions={displayedQuestions} handleQuestionClick={handleQuestionClick} />
-        </>
-      )}
+        )}
 
-      {graphState && graphState.visualization_state === '' && (
-        <div className='flex  w-2/3 items-start  items-center justify-center mt-60'>
-          <Stream graphState={graphState} />
-        </div>
-      )}
-      {showHumanFeedbackForm && (
-        <div className='flex justify-end gap-2 mb-10'>
-          <Button variant='contained' color='success' onClick={(ev) => handleHumanFeedback(true)}>
-            Approve
-          </Button>
-          <Button variant='contained' color='error' onClick={(ev) => handleHumanFeedback(false)}>
-            Reject
-          </Button>
-        </div>
-      )}
-      {/* {graphState && graphState.visualization == 'none' && (
+        {showHumanFeedbackForm && (
+          <div className='flex justify-end gap-2 mb-10'>
+            <Button variant='contained' color='success' onClick={(ev) => handleHumanFeedback(true)}>
+              Approve
+            </Button>
+            <Button variant='contained' color='error' onClick={(ev) => handleHumanFeedback(false)}>
+              Reject
+            </Button>
+          </div>
+        )}
+        {/* {graphState && graphState.visualization == 'none' && (
         <div id='answer_canvas' className='p-10 w-2/3 flex flex-col items-center justify-center relative'>
           <button
             onClick={toggleSidebar}
@@ -289,6 +291,21 @@ export default function Playground() {
           )}
         </div>
       )} */}
+      </div>
+      <div
+        className='w-[500px] h-full flex-shrink-0'
+        style={
+          {
+            '--copilot-kit-background-color': '#E0E9FD',
+            '--copilot-kit-secondary-color': '#6766FC',
+            '--copilot-kit-secondary-contrast-color': '#FFFFFF',
+            '--copilot-kit-primary-color': '#FFFFFF',
+            '--copilot-kit-contrast-color': '#000000',
+          } as any
+        }
+      >
+        <HumanChoice selectedQuestion={selectedQuestion} setSelectedQuestion={setSelectedQuestion} />
+      </div>
     </div>
   )
 }

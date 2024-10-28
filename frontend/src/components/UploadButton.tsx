@@ -34,7 +34,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ onFileUpload, disabled }) =
   }
 
   return (
-    <div className='fixed top-4 right-4 z-50'>
+    <div className='absolute top-4 right-4 z-50'>
       <input
         type='file'
         ref={fileInputRef}

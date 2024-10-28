@@ -14,7 +14,7 @@ from langchain_community.tools import WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.messages import HumanMessage
-
+from tools.HumanFeedback import human_choice
 # Set environment variables
  
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
@@ -55,7 +55,7 @@ wikipedia = WikipediaQueryRun(api_wrapper=WikipediaAPIWrapper())
 
 hypothesis_agent = create_agent(
     llm, 
-    [collect_data, wikipedia, google_search, scrape_webpages_with_fallback] + load_tools(["arxiv"]),
+    [collect_data, wikipedia, google_search, scrape_webpages_with_fallback, human_choice] + load_tools(["arxiv"]),
     '''
     As an esteemed expert in data analysis, your task is to formulate a set of research hypotheses and outline the steps to be taken based on the information table provided. Utilize statistics, machine learning, deep learning, and artificial intelligence in developing these hypotheses. Your hypotheses should be precise, achievable, professional, and innovative. To ensure the feasibility and uniqueness of your hypotheses, thoroughly investigate relevant information. For each hypothesis, include ample references to support your claims.
 
@@ -263,13 +263,13 @@ refiner_agent = create_agent(
  
 
 # Add nodes to the workflow
-workflow.add_node("Hypothesis", lambda state: agent_node(state, hypothesis_agent, "hypothesis_agent"))
-workflow.add_node("Process", lambda state: agent_node(state, process_agent, "process_agent"))
-workflow.add_node("Visualization", lambda state: agent_node(state, visualization_agent, "visualization_agent"))
-workflow.add_node("Search", lambda state: agent_node(state, searcher_agent, "searcher_agent"))
-workflow.add_node("Coder", lambda state: agent_node(state, code_agent, "code_agent"))
-workflow.add_node("Report", lambda state: agent_node(state, report_agent, "report_agent"))
-workflow.add_node("QualityReview", lambda state: agent_node(state, quality_review_agent, "quality_review_agent"))
+workflow.add_node("Hypothesis", lambda state, config: agent_node(state, config, hypothesis_agent, "hypothesis_agent"))
+workflow.add_node("Process", lambda state, config: agent_node(state, config, process_agent, "process_agent"))
+workflow.add_node("Visualization", lambda state, config: agent_node(state, config, visualization_agent, "visualization_agent"))
+workflow.add_node("Search", lambda state, config: agent_node(state, config, searcher_agent, "searcher_agent"))
+workflow.add_node("Coder", lambda state, config: agent_node(state, config, code_agent, "code_agent"))
+workflow.add_node("Report", lambda state, config: agent_node(state, config, report_agent, "report_agent"))
+workflow.add_node("QualityReview", lambda state, config: agent_node(state, config, quality_review_agent, "quality_review_agent"))
 workflow.add_node("NoteTaker", lambda state: note_agent_node(state, note_agent, "note_agent"))
 workflow.add_node("HumanChoice", human_choice_node)
 workflow.add_node("HumanReview", human_review_node)
@@ -328,6 +328,6 @@ workflow.add_conditional_edges(
 from langgraph.checkpoint.memory import MemorySaver
 workflow.add_edge(START, "Hypothesis")
 memory = MemorySaver()
-graph = workflow.compile(checkpointer=memory, interrupt_before=["HumanChoice","HumanReview"])
+graph = workflow.compile(checkpointer=memory, interrupt_after=["Hypothesis"])
 
  

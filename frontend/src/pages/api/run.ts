@@ -17,17 +17,7 @@ export default async function handler(req: any, res: any) {
     const thread = await client.threads.create()
     const streamResponse = client.runs.stream(thread['thread_id'], 'my_agent', {
       input: {
-        messages: [{ role: 'human', content: question }],
-        hypothesis: '',
-        process_decision: '',
-        process: '',
-        visualization_state: '',
-        searcher_state: '',
-        code_state: '',
-        report_section: '',
-        quality_review: '',
-        needs_revision: false,
-        last_sender: '',
+        messages: [{ role: 'human', content: question }]
       },
     })
 

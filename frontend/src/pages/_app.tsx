@@ -3,6 +3,8 @@ import React from 'react'
 import { AppProps } from 'next/app'
 
 import '@/styles/tailwind.css'
+import '@copilotkit/react-ui/styles.css'
+import '@/styles/copilotkit.css'
 
 const App = ({ Component, pageProps }: AppProps) => <Component {...pageProps} />
 

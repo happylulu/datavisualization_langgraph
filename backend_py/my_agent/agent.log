@@ -51352,3 +51352,214 @@ __root__
 2024-10-11 20:16:27,893 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
 2024-10-11 20:16:27,893 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
 2024-10-11 20:16:27,893 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-25 15:43:48,242 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:43:48,676 - logger - INFO - Document management tools initialized
+2024-10-25 15:43:48,676 - logger - INFO - Document management tools initialized
+2024-10-25 15:44:03,162 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:44:03,353 - logger - INFO - Document management tools initialized
+2024-10-25 15:44:03,353 - logger - INFO - Document management tools initialized
+2024-10-25 15:44:25,202 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:44:25,402 - logger - INFO - Document management tools initialized
+2024-10-25 15:44:25,402 - logger - INFO - Document management tools initialized
+2024-10-25 15:45:22,240 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:45:22,457 - logger - INFO - Document management tools initialized
+2024-10-25 15:45:22,457 - logger - INFO - Document management tools initialized
+2024-10-25 15:48:23,886 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:48:24,106 - logger - INFO - Document management tools initialized
+2024-10-25 15:48:24,106 - logger - INFO - Document management tools initialized
+2024-10-25 15:48:51,431 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:48:51,640 - logger - INFO - Document management tools initialized
+2024-10-25 15:48:51,640 - logger - INFO - Document management tools initialized
+2024-10-25 15:48:53,910 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:48:54,108 - logger - INFO - Document management tools initialized
+2024-10-25 15:48:54,108 - logger - INFO - Document management tools initialized
+2024-10-25 15:52:06,702 - logger - INFO - Web scraping tools initialized
+2024-10-25 15:52:06,910 - logger - INFO - Document management tools initialized
+2024-10-25 15:52:06,910 - logger - INFO - Document management tools initialized
+2024-10-25 16:10:36,919 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:10:37,134 - logger - INFO - Document management tools initialized
+2024-10-25 16:10:37,134 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:03,307 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:47:04,093 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:04,093 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:09,737 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:47:09,737 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:47:09,759 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:09,759 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:09,759 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:50,792 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:47:50,792 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:47:50,814 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:50,814 - logger - INFO - Document management tools initialized
+2024-10-25 16:47:50,814 - logger - INFO - Document management tools initialized
+2024-10-25 16:50:49,468 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:50:49,468 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:50:49,492 - logger - INFO - Document management tools initialized
+2024-10-25 16:50:49,492 - logger - INFO - Document management tools initialized
+2024-10-25 16:50:49,492 - logger - INFO - Document management tools initialized
+2024-10-25 16:52:37,785 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:52:37,785 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:52:37,802 - logger - INFO - Document management tools initialized
+2024-10-25 16:52:37,802 - logger - INFO - Document management tools initialized
+2024-10-25 16:52:37,802 - logger - INFO - Document management tools initialized
+2024-10-25 16:52:40,270 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:52:40,270 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:52:40,288 - logger - INFO - Document management tools initialized
+2024-10-25 16:52:40,288 - logger - INFO - Document management tools initialized
+2024-10-25 16:52:40,288 - logger - INFO - Document management tools initialized
+2024-10-25 16:55:07,934 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:55:07,934 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:55:07,952 - logger - INFO - Document management tools initialized
+2024-10-25 16:55:07,952 - logger - INFO - Document management tools initialized
+2024-10-25 16:55:07,952 - logger - INFO - Document management tools initialized
+2024-10-25 16:59:35,605 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:59:35,605 - logger - INFO - Web scraping tools initialized
+2024-10-25 16:59:35,622 - logger - INFO - Document management tools initialized
+2024-10-25 16:59:35,622 - logger - INFO - Document management tools initialized
+2024-10-25 16:59:35,622 - logger - INFO - Document management tools initialized
+2024-10-25 17:00:15,588 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:00:15,828 - logger - INFO - Document management tools initialized
+2024-10-25 17:00:15,828 - logger - INFO - Document management tools initialized
+2024-10-25 17:01:26,255 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:01:26,753 - logger - INFO - Document management tools initialized
+2024-10-25 17:01:26,753 - logger - INFO - Document management tools initialized
+2024-10-25 17:02:26,369 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:02:26,802 - logger - INFO - Document management tools initialized
+2024-10-25 17:02:26,802 - logger - INFO - Document management tools initialized
+2024-10-25 17:02:56,148 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:02:56,420 - logger - INFO - Document management tools initialized
+2024-10-25 17:02:56,420 - logger - INFO - Document management tools initialized
+2024-10-25 17:08:03,405 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:08:03,799 - logger - INFO - Document management tools initialized
+2024-10-25 17:08:03,799 - logger - INFO - Document management tools initialized
+2024-10-25 17:08:07,030 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:08:07,257 - logger - INFO - Document management tools initialized
+2024-10-25 17:08:07,257 - logger - INFO - Document management tools initialized
+2024-10-25 17:17:55,968 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:17:56,219 - logger - INFO - Document management tools initialized
+2024-10-25 17:17:56,219 - logger - INFO - Document management tools initialized
+2024-10-25 17:17:58,898 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:17:59,163 - logger - INFO - Document management tools initialized
+2024-10-25 17:17:59,163 - logger - INFO - Document management tools initialized
+2024-10-25 17:21:24,187 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:21:24,615 - logger - INFO - Document management tools initialized
+2024-10-25 17:21:24,615 - logger - INFO - Document management tools initialized
+2024-10-25 17:23:16,538 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:23:16,924 - logger - INFO - Document management tools initialized
+2024-10-25 17:23:16,924 - logger - INFO - Document management tools initialized
+2024-10-25 17:23:21,743 - logger - INFO - Web scraping tools initialized
+2024-10-25 17:23:22,174 - logger - INFO - Document management tools initialized
+2024-10-25 17:23:22,174 - logger - INFO - Document management tools initialized
+2024-10-25 17:24:55,737 - logger - INFO - Creating document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-25 17:24:55,737 - logger - INFO - Creating document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-25 17:24:55,737 - logger - INFO - Creating document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-25 17:24:55,741 - logger - INFO - Document created successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-25 17:24:55,741 - logger - INFO - Document created successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-25 17:24:55,741 - logger - INFO - Document created successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-25 17:26:45,641 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Data_UTF8.csv
+2024-10-25 17:26:45,641 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Data_UTF8.csv
+2024-10-25 17:26:45,641 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Data_UTF8.csv
+2024-10-25 17:26:45,662 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Data_UTF8.csv
+2024-10-25 17:26:45,662 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Data_UTF8.csv
+2024-10-25 17:26:45,662 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Data_UTF8.csv
+2024-10-27 19:48:40,934 - logger - INFO - Web scraping tools initialized
+2024-10-27 19:48:43,167 - logger - INFO - Document management tools initialized
+2024-10-27 19:48:43,167 - logger - INFO - Document management tools initialized
+2024-10-27 19:49:02,521 - logger - INFO - Web scraping tools initialized
+2024-10-27 19:49:03,015 - logger - INFO - Document management tools initialized
+2024-10-27 19:49:03,015 - logger - INFO - Document management tools initialized
+2024-10-27 19:49:09,145 - logger - INFO - Web scraping tools initialized
+2024-10-27 19:49:10,016 - logger - INFO - Document management tools initialized
+2024-10-27 19:49:10,016 - logger - INFO - Document management tools initialized
+2024-10-27 21:42:37,924 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:42:38,124 - logger - INFO - Document management tools initialized
+2024-10-27 21:42:38,124 - logger - INFO - Document management tools initialized
+2024-10-27 21:42:52,228 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:42:52,228 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:42:52,247 - logger - INFO - Document management tools initialized
+2024-10-27 21:42:52,247 - logger - INFO - Document management tools initialized
+2024-10-27 21:42:52,247 - logger - INFO - Document management tools initialized
+2024-10-27 21:45:59,831 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:45:59,831 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:45:59,848 - logger - INFO - Document management tools initialized
+2024-10-27 21:45:59,848 - logger - INFO - Document management tools initialized
+2024-10-27 21:45:59,848 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:01,394 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:48:01,394 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:48:01,411 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:01,411 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:01,411 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:33,368 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:48:33,368 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:48:33,383 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:33,383 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:33,383 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:36,474 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:48:36,474 - logger - INFO - Web scraping tools initialized
+2024-10-27 21:48:36,495 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:36,495 - logger - INFO - Document management tools initialized
+2024-10-27 21:48:36,495 - logger - INFO - Document management tools initialized
+2024-10-27 22:11:17,681 - logger - INFO - Web scraping tools initialized
+2024-10-27 22:11:17,681 - logger - INFO - Web scraping tools initialized
+2024-10-27 22:11:17,700 - logger - INFO - Document management tools initialized
+2024-10-27 22:11:17,700 - logger - INFO - Document management tools initialized
+2024-10-27 22:11:17,700 - logger - INFO - Document management tools initialized
+2024-10-27 22:12:15,521 - logger - INFO - Web scraping tools initialized
+2024-10-27 22:12:15,521 - logger - INFO - Web scraping tools initialized
+2024-10-27 22:12:15,541 - logger - INFO - Document management tools initialized
+2024-10-27 22:12:15,541 - logger - INFO - Document management tools initialized
+2024-10-27 22:12:15,541 - logger - INFO - Document management tools initialized
+2024-10-27 22:18:38,466 - logger - INFO - Reading document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-27 22:18:38,466 - logger - INFO - Reading document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-27 22:18:38,466 - logger - INFO - Reading document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-27 22:18:38,508 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-27 22:18:38,508 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-27 22:18:38,508 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Updated.md
+2024-10-27 22:18:45,660 - logger - INFO - Creating document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Summary.md
+2024-10-27 22:18:45,660 - logger - INFO - Creating document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Summary.md
+2024-10-27 22:18:45,660 - logger - INFO - Creating document: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Summary.md
+2024-10-27 22:18:45,690 - logger - INFO - Document created successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Summary.md
+2024-10-27 22:18:45,690 - logger - INFO - Document created successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Summary.md
+2024-10-27 22:18:45,690 - logger - INFO - Document created successfully: ./data_storage/NSCLC_Deep_Learning_Literature_Review_Summary.md
+2024-10-27 22:18:57,363 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:18:57,363 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:18:57,363 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:18:57,405 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:18:57,405 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:18:57,405 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:20,516 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:20,516 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:20,516 - logger - INFO - Reading document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:20,545 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:20,545 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:20,545 - logger - INFO - Document read successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:24,875 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:24,875 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:24,875 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:24,902 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:24,902 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:24,902 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:27,320 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:27,320 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:27,320 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:27,357 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:27,357 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:27,357 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:29,682 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:29,682 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:29,682 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:29,691 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:29,691 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:29,691 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:32,116 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:32,116 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:32,116 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:32,152 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:32,152 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:32,152 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:34,520 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:34,520 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:34,520 - logger - INFO - Editing document: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:34,549 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:34,549 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md
+2024-10-27 22:19:34,549 - logger - INFO - Document edited successfully: ./data_storage/NSCLC_Clinical_Trials_Research_Report.md

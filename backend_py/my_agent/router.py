@@ -23,18 +23,11 @@ def hypothesis_router(state: State) -> NodeType:
     """
     hypothesis = state.get("hypothesis")
     
-    if isinstance(hypothesis, AIMessage):
-        hypothesis_content = hypothesis.content
+    if hypothesis == '':
+        result = 'Hypothesis'
+    else :
+        result = 'Process'
          
-    elif isinstance(hypothesis, str):
-        hypothesis_content = hypothesis
-         
-    else:
-        hypothesis_content = ""
-         
-    
-    result = "Hypothesis" if not hypothesis_content.strip() else "Process"
-     
     return result
 
  
@@ -110,6 +103,7 @@ def QualityReview_router(state: State) -> NodeType:
     messages = state.get("messages", [])
     last_message = messages[-1] if messages else None
     
+    print(last_message, type(last_message))
     # Check if revision is needed
     if (last_message and 'REVISION' in str(last_message.content)) or state.get("needs_revision", False):
         previous_node = state.get("last_sender", "")
