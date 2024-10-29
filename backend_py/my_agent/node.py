@@ -75,7 +75,8 @@ def human_choice_node(
     last_message = cast(ToolMessage, state["messages"][-1])
 
     if last_message.content == "1":
-        modification_areas = input("Please enter your additional analysis request: ")
+        # modification_areas = input("Please enter your additional analysis request: ")
+        modification_areas = 'All'
         
         if modification_areas is None:
             modification_areas = ""

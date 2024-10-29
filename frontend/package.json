@@ -15,7 +15,6 @@
     "test": "NODE_ENV=test jest --passWithNoTests",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf out/",
-    "prepare": "is-ci || (cd .. && husky install frontend/.husky)",
     "commit": "cz"
   },
   "dependencies": {
