@@ -9,7 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const runtime = new CopilotRuntime({
     remoteActions: [
       {
-        url: process.env.REMOTE_ACTION_URL || 'http://localhost:8000/copilotkit',
+        url: process.env.REMOTE_ACTION_URL || 'http://localhost:8001/copilotkit',
       },
     ],
   })

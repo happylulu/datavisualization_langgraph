@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { CircularProgress } from '@mui/material'
 
 interface UploadButtonProps {
   onFileUpload: (file: File) => void
@@ -35,14 +36,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ onFileUpload, disabled }) =
 
   return (
     <div className='absolute top-4 right-4 z-50'>
-      <input
-        type='file'
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        name='file'
-        accept='.sqlite,.csv'
-        className='hidden'
-      />
+      <input type='file' ref={fileInputRef} onChange={handleFileChange} name='file' accept='.csv' className='hidden' />
       <button
         onClick={handleClick}
         disabled={disabled}
@@ -50,7 +44,18 @@ const UploadButton: React.FC<UploadButtonProps> = ({ onFileUpload, disabled }) =
           disabled ? 'opacity-50 cursor-not-allowed' : ''
         }`}
       >
-        {fileName ? (disabled ? `Uploading: ${fileName}` : `Uploaded: ${fileName}`) : 'Upload SQLite or CSV'}
+        {fileName ? (
+          disabled ? (
+            <div className='flex items-center justify-center'>
+              Uploading...
+              <CircularProgress color='primary' size={20} thickness={5} />
+            </div>
+          ) : (
+            `Uploaded: ${fileName}`
+          )
+        ) : (
+          'Upload CSV file'
+        )}
       </button>
     </div>
   )

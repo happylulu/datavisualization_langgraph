@@ -1,18 +1,13 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import Form from './Form'
 import Logo from '../Logo'
 import { Client } from '@langchain/langgraph-sdk'
 import { QuestionDisplay } from './QuestionDisplay'
 import { Stream } from './Stream'
-import { graphDictionary, InputType } from '../graphs/graphDictionary'
 import UploadButton from '../UploadButton'
 import { Sidebar } from './Sidebar'
 import { Button } from '@mui/material'
-import { CopilotKit, useCopilotChat } from '@copilotkit/react-core'
-import { CopilotChat } from '@copilotkit/react-ui'
 import { HumanChoice } from './CopilotKit'
-
-type GraphComponentProps = InputType & { data: any }
+import { toast } from 'react-toastify';
 
 const sampleQuestions = [
   'Is the study progressing according to the planned timeline (e.g., enrollment rate, follow-up visits)?',
@@ -52,22 +47,31 @@ export default function Playground() {
   const [showHumanFeedbackForm, setShowHumanFeedbackForm] = useState(false)
   const [threadId, setThreadId] = useState<string | null>(null)
 
-  const uploadDatabase = useCallback(async (file: File): Promise<string> => {
-    const formData = new FormData()
-    formData.append('file', file)
+  const toBase64 = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = (error) => reject(error)
+    })
 
+  const uploadDatabase = useCallback(async (file: File): Promise<string> => {
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_SQLITE_URL + '/upload-file', {
+      const base64File = await toBase64(file)
+
+      const response = await fetch('/api/upload', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ file: base64File, filename: file.name }),
       })
 
       if (!response.ok) {
         throw new Error('Upload failed')
       }
-
-      const data = await response.json()
-      return data.uuid
+      const result = await response.json()
+      return result
     } catch (error) {
       console.error('Error uploading file:', error)
       throw error
@@ -117,13 +121,12 @@ export default function Playground() {
     async (file: File) => {
       setIsUploading(true)
       try {
-        const uuid = await uploadDatabase(file)
-        setDatabaseUuid(uuid)
+        await uploadDatabase(file)
         setDatabaseFileName(file.name)
-        console.log(`File "${file.name}" uploaded successfully. UUID: ${uuid}`)
+        toast.success(`Uploaded successfully.`)
       } catch (error) {
         console.error('Failed to upload file:', error)
-        alert('Failed to upload file')
+        toast.error('Failed to upload file')
       } finally {
         setIsUploading(false)
       }
